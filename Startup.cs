@@ -1,4 +1,6 @@
 using DotNetCoreFans.Models;
+using DotNetCoreFans.Repositories;
+using DotNetCoreFans.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -24,6 +26,9 @@ namespace DotNetCoreFans
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=DotNetCoreFans;Trusted_Connection=True;";
             services.AddDbContext<DotNetCoreFansContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<TopicService>();
+            services.AddScoped<TopicRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
