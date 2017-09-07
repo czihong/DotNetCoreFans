@@ -13,13 +13,8 @@ namespace DotNetCoreFans.Models
         public virtual DbSet<TopicCollect> TopicCollect { get; set; }
         public virtual DbSet<User> User { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DotNetCoreFans;Trusted_Connection=True;");
-            }
-        }
+        public DotNetCoreFansContext(DbContextOptions<DotNetCoreFansContext> options) : base(options)
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
