@@ -17,8 +17,8 @@ namespace DotNetCoreFans.Controllers
         [HttpGet]
         public IActionResult Index([FromQuery] int page = 1)
         {
-            var topicList = _topicService.GetAllTopic(page);
-            return View(topicList);
+            ViewData["TopicList"] = _topicService.GetAllTopic(page);
+            return View();
         }
 
         [HttpGet("{id}")]
