@@ -9,6 +9,7 @@ namespace DotNetCoreFans.Services
 {
     public class TopicService
     {
+        private readonly int _defaultPageSize = 20;
         private readonly TopicRepository _topicRepository;
 
         public TopicService(TopicRepository topicRepository)
@@ -19,6 +20,11 @@ namespace DotNetCoreFans.Services
         public List<Topic> GetTopic()
         {
             return _topicRepository.GetTopic(1,20);
+        }
+
+        public IEnumerable<Topic> GetAllTopic(int pageNumber)
+        {
+            return _topicRepository.GetAllTopic(pageNumber, _defaultPageSize);
         }
     }
 }

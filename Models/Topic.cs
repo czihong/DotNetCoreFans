@@ -10,8 +10,8 @@ namespace DotNetCoreFans.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public long CreateUserId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
         public bool IsLock { get; set; }
         public bool IsRecommand { get; set; }
         public bool IsTop { get; set; }

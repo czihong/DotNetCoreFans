@@ -18,7 +18,12 @@ namespace DotNetCoreFans.Repositories
         public List<Topic> GetTopic(int pageNumber, int pageSize)
         {
             return _dotNetCoreFansContext.Topic.Where(item => item.IsDelete != false)
-                .OrderByDescending(item => item.CreateDate).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                .OrderByDescending(item => item.CreateTime).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        }
+
+        internal IEnumerable<Topic> GetAllTopic(int pageNumber, int pageSize)
+        {
+            return _dotNetCoreFansContext.Topic.OrderByDescending(item => item.CreateTime).Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
     }
 }

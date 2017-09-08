@@ -11,8 +11,8 @@ namespace DotNetCoreFans.Models
         public string Email { get; set; }
         public string Location { get; set; }
         public string Signature { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
         public byte Status { get; set; }
     }
 }

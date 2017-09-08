@@ -11,7 +11,7 @@ namespace DotNetCoreFans.Models
         public string Content { get; set; }
         public bool IsDelete { get; set; }
         public long CreateuserId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
     }
 }

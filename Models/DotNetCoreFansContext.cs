@@ -24,13 +24,13 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.Content).IsRequired();
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.ReplyId).HasColumnName("ReplyID");
 
                 entity.Property(e => e.TopicId).HasColumnName("TopicID");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+                entity.Property(e => e.UpdateTime).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<CommentVote>(entity =>
@@ -41,7 +41,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.CommentId).HasColumnName("CommentID");
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Message>(entity =>
@@ -50,7 +50,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.CommentId).HasColumnName("CommentID");
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.FromUserId).HasColumnName("FromUserID");
 
@@ -58,7 +58,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.TopicId).HasColumnName("TopicID");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+                entity.Property(e => e.UpdateTime).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Topic>(entity =>
@@ -71,7 +71,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.Content).IsRequired();
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.LastReplyDate).HasColumnType("datetime");
 
@@ -81,7 +81,7 @@ namespace DotNetCoreFans.Models
                     .IsRequired()
                     .HasMaxLength(100);
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+                entity.Property(e => e.UpdateTime).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<TopicCollect>(entity =>
@@ -92,7 +92,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.TopicId).HasColumnName("TopicID");
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -107,7 +107,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
@@ -121,7 +121,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.Signature).HasMaxLength(200);
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+                entity.Property(e => e.UpdateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.UserName)
                     .IsRequired()

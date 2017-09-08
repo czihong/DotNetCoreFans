@@ -11,8 +11,8 @@ namespace DotNetCoreFans.Models
         public long? CommentId { get; set; }
         public long? FromUserId { get; set; }
         public long ToUserId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
         public bool IsRead { get; set; }
     }
 }

@@ -7,6 +7,6 @@ namespace DotNetCoreFans.Models
     {
         public long UserId { get; set; }
         public long TopicId { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateTime { get; set; }
     }
 }

@@ -14,13 +14,15 @@ namespace DotNetCoreFans.Controllers
             _topicService = topicService;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index([FromQuery] int page = 1)
         {
-            return View();
+            var topicList = _topicService.GetAllTopic(page);
+            return View(topicList);
         }
 
         [HttpGet("{id}")]
-        public IActionResult Topic([FromRoute]int id)
+        public IActionResult Topic([FromRoute] int id)
         {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
             return View();
