@@ -40,16 +40,16 @@ interface ReceiveTopicAction {
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
 
-type KnowAction = RequestTopicAction | ReceiveTopicAction;
+type KnownAction = RequestTopicAction | ReceiveTopicAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestTopic: (page: number): AppThunkAction<KnowAction> => (dispatch, getState) => {
+    requestTopic: (page: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
-        if (page !== getState().topicData.page) {
+        if (page !== getState().topic.page) {
             let fetchTask = fetch(`api/Topic/Topic?page=${ page }`)
                 .then(response => response.json() as Promise<Topic[]>)
                 .then(data => {
@@ -68,7 +68,7 @@ export const actionCreators = {
 const unloadedState: TopicState = { topicData: [], isLoading: false };
 
 export const reducer: Reducer<TopicState> = (state: TopicState, incomingAction: Action) => {
-    const action = incomingAction as KnowAction;
+    const action = incomingAction as KnownAction;
     switch (action.type) {
         case 'REQUEST_TOPIC':
             return {
@@ -90,5 +90,4 @@ export const reducer: Reducer<TopicState> = (state: TopicState, incomingAction: 
     }
 
     return state || unloadedState;
-}
-
+};

@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using System.Diagnostics;
+using DotNetCoreFans.Models;
 using DotNetCoreFans.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetCoreFans.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TopicController : Controller
     {
         private readonly TopicService _topicService;
@@ -15,17 +17,19 @@ namespace DotNetCoreFans.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult Topic([FromQuery] int page = 1)
+        public IEnumerable<Topic> Topic([FromQuery] int page)
         {
-            ViewData["TopicList"] = _topicService.GetAllTopic(page);
-            return View();
+            page = page <= 0 ? 1 : page;
+
+            var topicList = _topicService.GetAllTopic(page);
+            return topicList;
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetTopicById([FromRoute] int id)
+        public Topic GetTopicById([FromRoute] int id)
         {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            return View();
+            return new Topic();
         }
     }
 }

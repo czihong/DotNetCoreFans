@@ -9,7 +9,7 @@ type TopicProps =
     & typeof TopicState.actionCreators          // ... plus action creators we've requested
     & RouteComponentProps<{ page: string }>;    // ... plus incoming routing parameters
 
-class Topic extends React.Component<TopicProps, {}>{
+class FetchTopic extends React.Component<TopicProps, {}>{
     componentWillMount() {
         let page = parseInt(this.props.match.params.page) || 0;
         this.props.requestTopic(page);
@@ -21,15 +21,30 @@ class Topic extends React.Component<TopicProps, {}>{
     }
 
     public render(){
-        return <div>
-            {
-                this.props.topicData
-            }
-        </div>
+        return <table className='table'>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+            {this.props.topicData.map(topic =>
+                <tr key={ topic.createTime }>
+                    <td>{ topic.id }</td>
+                    <td>{ topic.category }</td>
+                    <td>{ topic.title }</td>
+                    <td>{ topic.content }</td>
+                </tr>
+            )}
+            </tbody>
+        </table>;
     }
 }
 
 export default connect(
-    (state: ApplicationState) => state.topicData, // Selects which state properties are merged into the component's props
-    TopicState.actionCreators
-)(Topic) as typeof Topic;
+    (state: ApplicationState) => state.topic,   // Selects which state properties are merged into the component's props
+    TopicState.actionCreators                       // Selects which action creators are merged into the component's props
+)(FetchTopic) as typeof FetchTopic;
