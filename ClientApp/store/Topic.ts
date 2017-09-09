@@ -1,0 +1,94 @@
+import { fetch, addTask } from 'domain-task';
+import { Action, Reducer, ActionCreator } from 'redux';
+import { AppThunkAction } from './';
+
+// -----------------
+// STATE - This defines the type of data maintained in the Redux store.
+
+export interface TopicState {
+    isLoading: boolean;
+    page?: number;
+    topicData: Topic[];
+}
+
+export interface Topic {
+    id: number;
+    category: string;
+    title: string;
+    content: string;
+    createTime: string;
+    isLock: boolean;
+    isRecommand: boolean;
+    isTop: boolean;
+}
+
+// -----------------
+// ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
+// They do not themselves have any side-effects; they just describe something that is going to happen.
+
+interface RequestTopicAction {
+    type: 'REQUEST_TOPIC';
+    page: number;
+}
+
+interface ReceiveTopicAction {
+    type: 'RECEIVE_TOPIC';
+    page: number;
+    topicData: Topic[];
+}
+
+// Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
+// declared type strings (and not any other arbitrary string).
+
+type KnowAction = RequestTopicAction | ReceiveTopicAction;
+
+// ----------------
+// ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
+// They don't directly mutate state, but they can have external side-effects (such as loading data).
+
+export const actionCreators = {
+    requestTopic: (page: number): AppThunkAction<KnowAction> => (dispatch, getState) => {
+        // Only load data if it's something we don't already have (and are not already loading)
+        if (page !== getState().topicData.page) {
+            let fetchTask = fetch(`api/Topic/Topic?page=${ page }`)
+                .then(response => response.json() as Promise<Topic[]>)
+                .then(data => {
+                    dispatch({ type: 'RECEIVE_TOPIC', page: page, topicData: data});
+            });
+        
+            addTask(fetchTask);
+            dispatch({ type: 'REQUEST_TOPIC', page: page });
+        }
+    }
+}
+
+// ----------------
+// REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
+
+const unloadedState: TopicState = { topicData: [], isLoading: false };
+
+export const reducer: Reducer<TopicState> = (state: TopicState, incomingAction: Action) => {
+    const action = incomingAction as KnowAction;
+    switch (action.type) {
+        case 'REQUEST_TOPIC':
+            return {
+                page: action.page,
+                topicData: state.topicData,
+                isLoading: true
+            };
+        case 'RECEIVE_TOPIC':
+            if (action.page === state.page) {
+                return {
+                    page: action.page,
+                    topicData: action.topicData,
+                    isLoading: false
+                };
+            }
+            break;
+        default:
+            const exhaustiveCheck: never = action;
+    }
+
+    return state || unloadedState;
+}
+
