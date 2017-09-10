@@ -25,8 +25,9 @@ body {
 }
 
 .profile-image-sm{
-    height: 64px;
-    width: 64px;
+    height: 54px;
+    margin: 7px;
+    border-radius: 10px;
 }
 
 .navbar-default {
