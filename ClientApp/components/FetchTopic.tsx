@@ -65,15 +65,35 @@ class FetchTopic extends React.Component<TopicProps, {}>{
     private renderSidebar() {
         return <div className="sidebar col-md-3">
             <div className="panel panel-default">
-                <div className="panel-heading">Panel heading without title</div>
-                <div className="panel-body">Panel content</div>
+                <div className="panel-body">
+                    <a type="button" className="btn btn-primary">发表新话题</a>
+                </div>
             </div>
 
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    <h3 className="panel-title">Panel title</h3>
+                    <h3 className="panel-title">无回复话题</h3>
                 </div>
-                <div className="panel-body">Panel content</div>
+                <div className="list-group">
+                    <a href="#" className="list-group-item">请教各位技术大神一个问题？</a>
+                    <a href="#" className="list-group-item">请教各位技术大神一个问题？</a>
+                    <a href="#" className="list-group-item">请教各位技术大神一个问题？</a>
+                    <a href="#" className="list-group-item">请教各位技术大神一个问题？</a>
+                    <a href="#" className="list-group-item">请教各位技术大神一个问题？</a>
+                </div>
+            </div>
+
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h3 className="panel-title">推荐 DotNet Core 资源</h3>
+                </div>
+                <div className="list-group">
+                    <a href="#" className="list-group-item"><span className='glyphicon glyphicon-star'></span> 推荐 DotNet Core 资源</a>
+                    <a href="#" className="list-group-item"><span className='glyphicon glyphicon-star'></span> Dotnet Core 官网</a>
+                    <a href="#" className="list-group-item"><span className='glyphicon glyphicon-star'></span> Dotnet Core 中文教程</a>
+                    <a href="#" className="list-group-item"><span className='glyphicon glyphicon-star'></span> Azure School</a>
+                    <a href="#" className="list-group-item"><span className='glyphicon glyphicon-star'></span> Azure Docs</a>
+                </div>
             </div>
         </div>
     }
