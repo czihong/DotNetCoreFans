@@ -59,6 +59,28 @@ class FetchTopic extends React.Component<TopicProps, {}>{
                     </div>
                 </div>);
         }
+
+        // add pagination component
+        row.push(
+            <div className="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </div>
+        );
+
         return <div className="col-md-9">{row}</div>
     }
 
