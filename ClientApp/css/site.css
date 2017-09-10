@@ -38,6 +38,11 @@ body {
     background-color: #FFF
 }
 
+.media {
+    margin-top: 0px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     /* body {
