@@ -21,7 +21,8 @@ class FetchTopic extends React.Component<TopicProps, {}>{
     }
 
     public render() {
-        return <div className="col-md-9">
+        return <div className="row">
+            <div className="topic-list col-md-9">
                 <div className="media">
                     <div className="media-left">
                         <a href="#"><img className="media-object profile-image-sm" src="https://l.ruby-china.org/user/avatar/1107.jpg" /></a>
@@ -31,7 +32,7 @@ class FetchTopic extends React.Component<TopicProps, {}>{
                             <a href="#">
                                 <h4>
                                     <span>文章分享</span>
-                                    <span>如何使用DotNet Core快速开发SPA应用程序</span>    
+                                    <span>如何使用DotNet Core快速开发SPA应用程序</span>
                                 </h4>
                             </a>
                         </div>
@@ -47,7 +48,25 @@ class FetchTopic extends React.Component<TopicProps, {}>{
                     </div>
                     <div className="media-right"><h2>32</h2></div>
                 </div>
-            </div>;
+            </div>
+            {this.renderSidebar()}
+        </div>;
+    }
+
+    private renderSidebar() {
+        return <div className="sidebar col-md-3">
+            <div className="panel panel-default">
+                <div className="panel-heading">Panel heading without title</div>
+                <div className="panel-body">Panel content</div>
+            </div>
+
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h3 className="panel-title">Panel title</h3>
+                </div>
+                <div className="panel-body">Panel content</div>
+            </div>
+        </div>
     }
 }
 
