@@ -47,6 +47,12 @@ body {
     width: 100%
 }
 
+.footer {
+    width: 100%;
+    line-height: 25px;
+    background-color: white;
+}
+
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     /* body {
