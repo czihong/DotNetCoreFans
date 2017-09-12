@@ -5,10 +5,12 @@ import Home from './components/Home';
 import FetchData from './components/FetchData';
 import Counter from './components/Counter';
 import FetchTopic from './components/FetchTopic';
+import Topic from './components/Topic';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
     <Route path='/fetchtopic/:page?' component={ FetchTopic } />
+    <Route path='/topic/:topicId?' component={ Topic } />
     <Route path='/counter' component={ Counter } />
     <Route path='/fetchdata/:startDateIndex?' component={ FetchData } />
 </Layout>;
