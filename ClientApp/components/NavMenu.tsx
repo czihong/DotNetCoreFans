@@ -31,6 +31,11 @@ export class NavMenu extends React.Component<{}, {}> {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to={ '/topic' } activeClassName='active'>
+                                <span className='glyphicon glyphicon-comment'></span> 发表新话题
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to={ '/counter' } activeClassName='active'>
                                 <span className='glyphicon glyphicon-education'></span> 注册
                             </NavLink>
