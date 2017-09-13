@@ -8,6 +8,7 @@ import FetchTopic from './components/FetchTopic';
 import Topic from './components/Topic';
 import SignupPage from './components/SignupPage';
 import SigninPage from './components/SigninPage';
+import UserPage from './components/UserPage';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
@@ -17,4 +18,5 @@ export const routes = <Layout>
     <Route path='/fetchdata/:startDateIndex?' component={ FetchData } />
     <Route path='/signup' component={ SignupPage } />
     <Route path='/signin' component={ SigninPage } />
+    <Route path='/user' component={ UserPage } />
 </Layout>;
