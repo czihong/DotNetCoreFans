@@ -41,7 +41,7 @@ export class NavMenu extends React.Component<{}, {}> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/fetchdata' } activeClassName='active'>
+                            <NavLink to={ '/signin' } activeClassName='active'>
                                 <span className='glyphicon glyphicon-th-list'></span> 登陆
                             </NavLink>
                         </li>
