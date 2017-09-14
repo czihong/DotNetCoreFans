@@ -35,7 +35,7 @@ class SingleTopic extends React.Component<SingleTopicProps, {}>{
                         Ruby用户指南地址：https://github.com/BadTudou/RubyUsersGuide-zh
                         
                         (尽管是GNU Free Documentation License，但我还是给英文版的作者发去授权申请，作者回复</p>
-            </div>
+                </div>
             </div>
 
             <div className="panel panel-default">

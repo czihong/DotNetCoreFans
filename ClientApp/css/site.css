@@ -56,6 +56,18 @@ body {
 .text-center {
     text-align: center
 }
+
+.label-dotnet {
+    color: black;
+    font-weight: bold;
+    font-size: 100%
+}
+
+.button-dotnet {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     /* body {

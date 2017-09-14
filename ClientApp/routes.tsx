@@ -9,11 +9,13 @@ import Topic from './components/Topic';
 import SignupPage from './components/SignupPage';
 import SigninPage from './components/SigninPage';
 import UserPage from './components/UserPage';
+import NewTopicPage from './components/NewTopicPage';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
     <Route path='/fetchtopic/:page?' component={ FetchTopic } />
     <Route path='/topic/:topicId?' component={ Topic } />
+    <Route path='/newtopic' component={ NewTopicPage } />
     <Route path='/counter' component={ Counter } />
     <Route path='/fetchdata/:startDateIndex?' component={ FetchData } />
     <Route path='/signup' component={ SignupPage } />
