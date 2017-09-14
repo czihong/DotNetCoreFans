@@ -68,6 +68,10 @@ body {
     margin-right: 10px;
 }
 
+.panel-body-title {
+    margin: 0px 10px 10px 0px;
+}
+
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     /* body {

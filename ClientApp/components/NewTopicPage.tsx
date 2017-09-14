@@ -25,14 +25,19 @@ class NewTopicPage extends React.Component<NewTopicPageProps, {}>{
                     <h3 className="panel-title">发布话题</h3>
                 </div>
                 <div className="panel-body">
-                    <span className="label label-dotnet">分类</span>
-                    <span className="btn-group" role="group">
-                        <button type="button" className="btn btn-default button-dotnet">分享</button>
-                        <button type="button" className="btn btn-default button-dotnet">.Net</button>
-                        <button type="button" className="btn btn-default button-dotnet">.Net Core</button>
-                        <button type="button" className="btn btn-default button-dotnet">Asp.Net Core</button>
-                    </span>
-              </div>
+                    <div className="panel-body-title">
+                        <span className="label label-dotnet">分类</span>
+                        <span className="btn-group" role="group">
+                            <button type="button" className="btn btn-default button-dotnet">分享</button>
+                            <button type="button" className="btn btn-default button-dotnet">.Net</button>
+                            <button type="button" className="btn btn-default button-dotnet">.Net Core</button>
+                            <button type="button" className="btn btn-default button-dotnet">Asp.Net Core</button>
+                        </span>
+                    </div>
+                    <div className="">
+                        <input type="text" className="form-control" id="inputEmail3" placeholder="标题字数10以上" />
+                    </div>
+                </div>
             </div>
         </div>
     }
