@@ -17,6 +17,11 @@
       "from": "@types/react@15.0.35",
       "resolved": "https://registry.npmjs.org/@types/react/-/react-15.0.35.tgz"
     },
+    "@types/react-bootstrap": {
+      "version": "0.31.2",
+      "from": "@types/react-bootstrap@latest",
+      "resolved": "https://registry.npmjs.org/@types/react-bootstrap/-/react-bootstrap-0.31.2.tgz"
+    },
     "@types/react-dom": {
       "version": "15.5.1",
       "from": "@types/react-dom@15.5.1",

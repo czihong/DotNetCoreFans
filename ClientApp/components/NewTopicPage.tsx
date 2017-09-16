@@ -3,6 +3,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as TopicState from '../store/Topic';
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 type NewTopicPageProps =
     TopicState.TopicState                       // ... state we've requested from the Redux store
@@ -36,6 +37,12 @@ class NewTopicPage extends React.Component<NewTopicPageProps, {}>{
                     </div>
                     <div className="">
                         <input type="text" className="form-control" id="inputEmail3" placeholder="标题字数10以上" />
+                    </div>
+                    <div className="dotnet-editor">
+                        <FormGroup controlId="formControlsTextarea">
+                            <ControlLabel>Textarea</ControlLabel>
+                            <FormControl componentClass="textarea" placeholder="textarea" />
+                        </FormGroup>
                     </div>
                 </div>
             </div>
