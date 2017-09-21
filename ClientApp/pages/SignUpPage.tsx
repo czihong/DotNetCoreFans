@@ -3,6 +3,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as TopicState from '../store/Topic';
+import { Label } from 'react-bootstrap';
 
 type SignupProps =
     TopicState.TopicState                       // ... state we've requested from the Redux store

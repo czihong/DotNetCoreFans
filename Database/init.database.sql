@@ -4,9 +4,9 @@ IF OBJECT_ID('[User]') IS NOT NULL DROP TABLE [User];
 CREATE TABLE [User]
 (
 	ID bigint identity primary key,
-	UserName nvarchar(20) not null unique,
-	Password nvarchar(32) not null,
 	Email nvarchar(100) not null unique,
+	Password nvarchar(32) not null,
+	NickName nvarchar(20) not null unique,
 	Location nvarchar(100),
 	Signature nvarchar(200),
 	CreateTime datetime not null,

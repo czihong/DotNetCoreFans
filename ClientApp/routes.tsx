@@ -6,7 +6,7 @@ import FetchData from './components/FetchData';
 import Counter from './components/Counter';
 import FetchTopic from './components/FetchTopic';
 import Topic from './components/Topic';
-import SignupPage from './components/SignupPage';
+import SignupPage from './pages/SignupPage';
 import SigninPage from './components/SigninPage';
 import UserPage from './components/UserPage';
 import NewTopicPage from './components/NewTopicPage';
