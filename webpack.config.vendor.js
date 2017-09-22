@@ -29,8 +29,7 @@ module.exports = (env) => {
                 'redux',
                 'redux-thunk',
                 'react-router-redux',
-                'jquery',
-                'react-bootstrap'
+                'jquery'
             ],
         },
         output: {

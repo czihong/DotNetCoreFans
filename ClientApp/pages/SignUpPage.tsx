@@ -14,6 +14,7 @@ class SignupPage extends React.Component<SignupProps, {}>{
 
     public render() {
         return <div className="row">
+            <Button color="danger">Danger!</Button>
             <div className="col-sm-offset-4 col-sm-4">
                 <h3 className="text-center">注册</h3>
             </div>
