@@ -1,57 +1,71 @@
 import * as React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+// import { RouteComponentProps } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import { ApplicationState } from '../store';
+// import * as NavMenuStore from '../store/NavMenu';
+import { Nav, Navbar, NavLink, NavItem, NavbarBrand, NavbarToggler, Collapse, Button } from 'reactstrap';
 
-export class NavMenu extends React.Component<{}, {}> {
+// type NavMenuProps =
+//     NavMenuStore.NavMenuState
+//     & typeof NavMenuStore.actionCreators
+//     & RouteComponentProps<{}>;
+
+interface State {
+    isOpen: boolean;
+}
+
+interface Props {
+
+}
+
+export class NavMenu extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            isOpen: false
+        };
+    }
+
+    private toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+
     public render() {
-        return <div className='row'>
-                <div className='navbar-header'>
-                    <button type='button' className='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                        <span className='sr-only'>Toggle navigation</span>
-                        <span className='icon-bar'></span>
-                        <span className='icon-bar'></span>
-                        <span className='icon-bar'></span>
-                    </button>
-                    <Link className='navbar-brand' to={ '/' }>.Net  Core 中文社区</Link>
-                </div>
-                <div className='navbar-collapse collapse'>
-                    <ul className='nav navbar-nav'>
-                        <li>
-                            <NavLink exact to={ '/' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-home'></span> 首页
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/fetchTopic' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-comment'></span> 社区
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/topic' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-comment'></span> 话题
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/newtopic' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-comment'></span> 发表新话题
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/signup' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> 注册
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/signin' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> 登陆
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/user' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> 用户中心
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-        </div>;
+        return (
+            <Navbar light toggleable>
+                <NavbarToggler right onClick={() => { this.toggle() }} />
+                <NavbarBrand href="/">.Net Core 中文社区</NavbarBrand>
+                <Collapse isOpen={ this.state.isOpen } navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <NavLink href={'/'}> 首页 </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href={'/fetchTopic'} > 社区 </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href={'/topic'} > 话题 </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href={'/newtopic'} > 发表新话题 </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href={'/signup'} > 注册 </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href={'/signin'} > 登陆 </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href={'/user'} > 用户中心 </NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+                <Button color="danger">Danger!</Button>
+            </Navbar>
+        );
     }
 }
