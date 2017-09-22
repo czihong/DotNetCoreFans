@@ -59,13 +59,12 @@ namespace DotNetCoreFans
 
             app.UseStaticFiles();
 
-            // app.UseMvc(routes =>
-            // {
-            //     routes.MapSpaFallbackRoute(
-            //         name: "spa-fallback",
-            //         defaults: new { controller = "Home", action = "Index" });
-            // });
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "School V1");
+            });
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -73,10 +72,15 @@ namespace DotNetCoreFans
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
+            // here you can see we make sure it doesn't start with /api, if it does, it'll 404 within .NET if it can't be found
+            app.MapWhen(x => !x.Request.Path.Value.StartsWith("/api"), builder =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "School V1");
+                builder.UseMvc(routes =>
+                {
+                    routes.MapSpaFallbackRoute(
+                        name: "spa-fallback",
+                        defaults: new { controller = "Home", action = "Index" });
+                });
             });
         }
     }
