@@ -1,3 +1,38 @@
+/*************************************** dotnet core fans css start **************************************************/
+.navbar-dotnet {
+    background-color: #FFF
+}
+
+.container-body-dotnet {
+    margin-top: 70px;
+}
+
+.container-footer-dotnet {
+    width: 100%;
+    line-height: 25px;
+    background-color: white;
+    margin-top:10px;
+}
+
+.label-dotnet {
+    color: black;
+    font-weight: bold;
+    font-size: 100%;
+    text-align: center;
+}
+
+.button-dotnet {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.text-center-dotnet {
+    text-align: center;
+    display: block;
+}
+
+/*************************************** dotnet core fans css end **************************************************/
+
 .main-nav li .glyphicon {
     margin-right: 10px;
 }
@@ -23,52 +58,9 @@ body {
     background-color: #e5e5e5
 }
 
-.profile-image-sm{
-    height: 54px;
-    margin: 7px;
-    border-radius: 10px;
-}
-
-.navbar-default {
-    background-color: #FFF
-}
-
-.topic-list {
-    background-color: #FFF
-}
-
 .media {
     margin-top: 0px;
     border-bottom: 1px solid #F0F0F0;
-}
-
-.btn-primary {
-    width: 100%
-}
-
-.footer {
-    width: 100%;
-    line-height: 25px;
-    background-color: white;
-}
-
-.text-center {
-    text-align: center
-}
-
-.label-dotnet {
-    color: black;
-    font-weight: bold;
-    font-size: 100%
-}
-
-.button-dotnet {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.panel-body-title {
-    margin: 0px 10px 10px 0px;
 }
 
 @media (max-width: 767px) {

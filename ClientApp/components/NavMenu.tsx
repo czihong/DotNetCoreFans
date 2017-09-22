@@ -36,7 +36,7 @@ export class NavMenu extends React.Component<Props, State> {
 
     public render() {
         return (
-            <Navbar className="navbar-default navbar-dotnet" fixed="top" light toggleable>
+            <Navbar className="navbar-dotnet" fixed="top" light toggleable>
                 <Container>
                     <NavbarToggler right onClick={this.toggle} />
                     <NavbarBrand href="/">.Net Core 中文社区</NavbarBrand>

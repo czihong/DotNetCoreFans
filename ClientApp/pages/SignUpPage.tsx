@@ -3,7 +3,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as TopicState from '../store/Topic';
-import { Button, Form, Label, Input, FormGroup, FormText, Col } from 'reactstrap';
+import { Button, Form, Label, Input, FormGroup, FormText, Col, Row } from 'reactstrap';
 
 type SignupProps =
     TopicState.TopicState                       // ... state we've requested from the Redux store
@@ -14,6 +14,7 @@ class SignupPage extends React.Component<SignupProps, {}>{
     public render() {
         return (
             <Form>
+                <Label className="text-center-dotnet">注册</Label>
                 <FormGroup row>
                     <Col sm={{ size: 4, offset: 4 }}>
                         <Input type="email" name="email" placeholder="登录邮件" />
@@ -24,15 +25,21 @@ class SignupPage extends React.Component<SignupProps, {}>{
                         <Input type="password" name="password" id="password" placeholder="密码必须6个字符" />
                     </Col>
                 </FormGroup>
-                <FormGroup>
-                    <Label for="confirmPassword">Password</Label>
-                    <Input type="password" name="password" id="confirmPassword" placeholder="确认密码" />
+                <FormGroup row>
+                    <Col sm={{ size: 4, offset: 4 }}>
+                        <Input type="password" name="password" id="confirmPassword" placeholder="确认密码" />
+                    </Col>
                 </FormGroup>
-                <FormGroup>
-                    <Label for="nickName">Email</Label>
-                    <Input type="text" name="email" id="nickName" placeholder="用户昵称" />
+                <FormGroup row>
+                    <Col sm={{ size: 4, offset: 4 }}>
+                        <Input type="text" name="email" id="nickName" placeholder="用户昵称" />
+                    </Col>
                 </FormGroup>
-                <Button>Submit</Button>
+                <Row>
+                    <Col sm={{ size: 4, offset: 4 }}>
+                        <Button>Submit</Button>
+                    </Col>
+                </Row>
             </Form >
         );
     }
