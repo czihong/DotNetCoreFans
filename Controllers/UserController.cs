@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using DotNetCoreFans.Models;
+using DotNetCoreFans.Models.RequestModel;
 using DotNetCoreFans.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,19 @@ namespace DotNetCoreFans.Controllers
         }
 
         [HttpPut]
-        public User Signup([FromBody] RequestSignupUser requestSignUpUser)
+        public User Signup([FromBody] SignupUserRequest signupUserRequest)
         {
-            var topicList = _userService.CreateUser(requestSignUpUser);
-            return topicList;
+            var result = _userService.CreateUser(signupUserRequest);
+            
+            return result;
+        }
+
+        [HttpGet("{id}")]
+        public User Get([FromRoute] int id)
+        {
+            var result = _userService.GetUserById(id);
+
+            return result;
         }
     }
 }

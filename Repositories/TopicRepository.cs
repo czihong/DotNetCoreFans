@@ -21,7 +21,7 @@ namespace DotNetCoreFans.Repositories
                 .OrderByDescending(item => item.CreateTime).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
         }
 
-        internal IEnumerable<Topic> GetAllTopic(int pageNumber, int pageSize)
+        public IEnumerable<Topic> GetAllTopic(int pageNumber, int pageSize)
         {
             return _dotNetCoreFansContext.Topic.OrderByDescending(item => item.CreateTime).Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }

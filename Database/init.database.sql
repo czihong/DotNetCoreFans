@@ -5,14 +5,19 @@ CREATE TABLE [User]
 (
 	ID bigint identity primary key,
 	Email nvarchar(100) not null unique,
-	Password nvarchar(32) not null,
+	Password nvarchar(256) not null,
 	NickName nvarchar(20) not null unique,
 	Location nvarchar(100),
 	Signature nvarchar(200),
-	CreateTime datetime not null,
-    UpdateTime datetime not null,
-	Status tinyint not null
+	CreateTime datetime not null DEFAULT GETDATE(),
+    UpdateTime datetime not null DEFAULT GETDATE(),
+	Status tinyint not null default 0
 );
+
+INSERT INTO [User] (Email, Password, NickName, Location, Signature) VALUES 
+('dotnet@fans.com', 'asdafsdafsaf', '见字如面', '上海', '见字如面的签名');
+
+SELECT * FROM [User];
 
 IF OBJECT_ID('Topic') IS NOT NULL DROP TABLE Topic;
 CREATE TABLE Topic

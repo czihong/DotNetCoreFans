@@ -101,7 +101,7 @@ namespace DotNetCoreFans.Models
                     .HasName("UQ__User__A9D10534DDFC4AB8")
                     .IsUnique();
 
-                entity.HasIndex(e => e.UserName)
+                entity.HasIndex(e => e.NickName)
                     .HasName("UQ__User__C9F28456BEF8251A")
                     .IsUnique();
 
@@ -123,7 +123,7 @@ namespace DotNetCoreFans.Models
 
                 entity.Property(e => e.UpdateTime).HasColumnType("datetime");
 
-                entity.Property(e => e.UserName)
+                entity.Property(e => e.NickName)
                     .IsRequired()
                     .HasMaxLength(20);
             });

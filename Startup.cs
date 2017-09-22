@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace DotNetCoreFans
 {
@@ -23,11 +24,19 @@ namespace DotNetCoreFans
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSwaggerGen(config =>
 
+            {
+                config.SwaggerDoc("v1", new Info { Title = "DotNet Core Fans", Version = "v1" });
+            });
+            
             var connection = @"Server=(localdb)\mssqllocaldb;Database=DotNetCoreFans;Trusted_Connection=True;";
             services.AddDbContext<DotNetCoreFansContext>(options => options.UseSqlServer(connection));
 
+            services.AddScoped<UserService>();
             services.AddScoped<TopicService>();
+
+            services.AddScoped<UserRepository>();
             services.AddScoped<TopicRepository>();
         }
 
@@ -59,6 +68,12 @@ namespace DotNetCoreFans
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "School V1");
             });
         }
     }
