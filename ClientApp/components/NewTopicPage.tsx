@@ -50,11 +50,11 @@ class NewTopicPage extends React.Component<NewTopicPageProps, {}>{
                 </div>
                 <div className="meida">
                     <div className="media-left">
-                        <a href="#"><img className="media-object profile-image-sm" src="https://l.ruby-china.org/user/avatar/1107.jpg" /></a>
+                        <a><img className="media-object profile-image-sm" src="https://l.ruby-china.org/user/avatar/1107.jpg" /></a>
                     </div>
                     <div className="media-body">
-                        <div className="meida-heading" href="#">见字如面</div>
-                        <div className="meida-heading" href="#">这里是作者的签名</div>
+                        <div className="meida-heading">见字如面</div>
+                        <div className="meida-heading">这里是作者的签名</div>
                     </div>
                 </div>
             </div>

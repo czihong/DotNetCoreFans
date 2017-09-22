@@ -34,22 +34,22 @@ class FetchTopic extends React.Component<TopicProps, {}>{
                 <div className="topic-list">
                     <div className="media">
                         <div className="media-left">
-                            <a href="#"><img className="media-object profile-image-sm" src="https://l.ruby-china.org/user/avatar/1107.jpg" /></a>
+                            <a><img className="media-object profile-image-sm" src="https://l.ruby-china.org/user/avatar/1107.jpg" /></a>
                         </div>
                         <div className="media-body">
-                            <div className="meida-heading" href="#">
-                                <a href="#">
+                            <div className="meida-heading">
+                                <a>
                                     <h4>
                                         <span>文章分享 -- </span>
                                         <span>如何使用DotNet Core快速开发SPA应用程序</span>
                                     </h4>
                                 </a>
                             </div>
-                            <div className="meida-heading" href="#">
+                            <div className="meida-heading">
                                 <h4>
-                                    <a href="#">[czihong]</a>
+                                    <a>[czihong]</a>
                                     <span>最后由</span>
-                                    <a href="#">[hedy]</a>
+                                    <a>[hedy]</a>
                                     <span>回复于</span>
                                     <span>[43分钟] 前</span>
                                 </h4>
@@ -68,11 +68,11 @@ class FetchTopic extends React.Component<TopicProps, {}>{
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                <li><a>1</a></li>
+                <li><a>2</a></li>
+                <li><a>3</a></li>
+                <li><a>4</a></li>
+                <li><a>5</a></li>
                 <li>
                     <a href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -88,7 +88,7 @@ class FetchTopic extends React.Component<TopicProps, {}>{
         return <div className="sidebar col-md-3">
             <div className="panel panel-default">
                 <div className="panel-body">
-                    <a type="button" className="btn btn-primary">发表新话题</a>
+                    <a className="btn btn-primary">发表新话题</a>
                 </div>
             </div>
 
