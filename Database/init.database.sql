@@ -15,7 +15,7 @@ CREATE TABLE [User]
 );
 
 INSERT INTO [User] (Email, Password, NickName, Location, Signature) VALUES 
-('dotnet@fans.com', 'asdafsdafsaf', '见字如面', '上海', '见字如面的签名');
+('dotnet@fans.com', '8D969EEF6ECAD3C29A3A629280E686CF0C3F5D5A86AFF3CA12020C923ADC6C92', '见字如面', '上海', '见字如面的签名');
 
 SELECT * FROM [User];
 
