@@ -3,14 +3,14 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as TopicState from '../store/Topic';
-import { Button, Form, Label, Input, FormGroup, FormText, Col, Row } from 'reactstrap';
+import { Button, Form, Label, Input, FormGroup, Col, Row } from 'reactstrap';
 
-type SignupProps =
+type SignupFromProps =
     TopicState.TopicState                       // ... state we've requested from the Redux store
     & typeof TopicState.actionCreators          // ... plus action creators we've requested
     & RouteComponentProps<{ page: string }>;    // ... plus incoming routing parameters
 
-class SignupPage extends React.Component<SignupProps, {}>{
+class SignupForm extends React.Component<SignupFromProps, {}>{
     public render() {
         return (
             <Form>
@@ -38,6 +38,7 @@ class SignupPage extends React.Component<SignupProps, {}>{
                 <Row>
                     <Col sm={{ size: 4, offset: 4 }}>
                         <Button>Submit</Button>
+                        <Link className='btn btn-default pull-left' to={ `/fetchdata/1` }>Previous</Link>
                     </Col>
                 </Row>
             </Form >
@@ -48,4 +49,4 @@ class SignupPage extends React.Component<SignupProps, {}>{
 export default connect(
     (state: ApplicationState) => state.topic,   // Selects which state properties are merged into the component's props
     TopicState.actionCreators                       // Selects which action creators are merged into the component's props
-)(SignupPage) as typeof SignupPage;
+)(SignupForm) as typeof SignupForm;
