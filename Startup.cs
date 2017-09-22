@@ -1,3 +1,4 @@
+using DotNetCoreFans.Common;
 using DotNetCoreFans.Models;
 using DotNetCoreFans.Repositories;
 using DotNetCoreFans.Services;
@@ -25,7 +26,6 @@ namespace DotNetCoreFans
         {
             services.AddMvc();
             services.AddSwaggerGen(config =>
-
             {
                 config.SwaggerDoc("v1", new Info { Title = "DotNet Core Fans", Version = "v1" });
             });
@@ -59,15 +59,18 @@ namespace DotNetCoreFans
 
             app.UseStaticFiles();
 
+            // app.UseMvc(routes =>
+            // {
+            //     routes.MapSpaFallbackRoute(
+            //         name: "spa-fallback",
+            //         defaults: new { controller = "Home", action = "Index" });
+            // });
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
             });
 
             app.UseSwagger();
