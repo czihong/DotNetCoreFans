@@ -36,8 +36,8 @@ export class NavMenu extends React.Component<Props, State> {
 
     public render() {
         return (
-            <Navbar light toggleable>
-                <NavbarToggler right onClick={() => { this.toggle() }} />
+            <Navbar className="navbar-default" light toggleable>
+                <NavbarToggler right onClick={this.toggle} />
                 <NavbarBrand href="/">.Net Core 中文社区</NavbarBrand>
                 <Collapse isOpen={ this.state.isOpen } navbar>
                     <Nav className="ml-auto" navbar>
@@ -64,7 +64,6 @@ export class NavMenu extends React.Component<Props, State> {
                         </NavItem>
                     </Nav>
                 </Collapse>
-                <Button color="danger">Danger!</Button>
             </Navbar>
         );
     }
