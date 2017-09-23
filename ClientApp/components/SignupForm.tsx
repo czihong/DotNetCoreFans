@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
-import * as TopicState from '../store/Topic';
 import { Button, Form, Label, Input, FormGroup, Col, Row } from 'reactstrap';
 
 type SignupFromProps =
@@ -37,7 +36,7 @@ class SignupForm extends React.Component<SignupFromProps, {}>{
                 </FormGroup>
                 <Row>
                     <Col sm={{ size: 4, offset: 4 }}>
-                        <Button>Submit</Button>
+                        <Button onClick={(value) => this.props.formSubmit(value)}>Submit</Button>
                         <Link className='btn btn-default pull-left' to={ `/fetchdata/1` }>Previous</Link>
                     </Col>
                 </Row>
