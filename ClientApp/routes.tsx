@@ -21,4 +21,5 @@ export const routes = <Layout>
     <Route path='/signup' component={ SignupForm } />
     <Route path='/signin' component={ SigninPage } />
     <Route path='/user' component={ UserPage } />
+    <Route path='*' component={ Home } />
 </Layout>;
