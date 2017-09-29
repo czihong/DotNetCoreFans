@@ -3,6 +3,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as TopicState from '../store/Topic';
+import { TopicCard } from './TopicCard';
 
 type TopicProps =
     TopicState.TopicState                       // ... state we've requested from the Redux store
@@ -21,9 +22,10 @@ class FetchTopic extends React.Component<TopicProps, {}>{
     }
 
     public render() {
-        return <div className="row">
-            {this.renderTopicList()}
-            {this.renderSidebar()}
+        return <div>
+            <TopicCard></TopicCard>
+            {/* {this.renderTopicList()}
+            {this.renderSidebar()} */}
         </div>;
     }
 

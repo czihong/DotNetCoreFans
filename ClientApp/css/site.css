@@ -31,6 +31,10 @@
     display: block;
 }
 
+.card-dotnet {
+    display: inline;
+}
+
 /*************************************** dotnet core fans css end **************************************************/
 
 .main-nav li .glyphicon {
