@@ -1,14 +1,6 @@
 import * as React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { ApplicationState } from '../store';
-// import * as NavMenuStore from '../store/NavMenu';
-import { Nav, Navbar, Link, NavItem, NavbarBrand, NavbarToggler, Collapse, Button, Container } from 'reactstrap';
-
-// type NavMenuProps =
-//     NavMenuStore.NavMenuState
-//     & typeof NavMenuStore.actionCreators
-//     & RouteComponentProps<{}>;
+import { RouteComponentProps } from 'react-router-dom';
+import { Nav, Navbar, NavLink, NavItem, NavbarBrand, NavbarToggler, Collapse, Button, Container } from 'reactstrap';
 
 interface State {
     isOpen: boolean;
@@ -43,25 +35,25 @@ export class NavMenu extends React.Component<Props, State> {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Link to={'/'}> 首页 </Link>
+                                <NavLink href={'/'}> 首页 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to={'/fetchTopic'} > 社区 </Link>
+                                <NavLink href={'/fetchTopic'} > 社区 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to={'/topic'} > 话题 </Link>
+                                <NavLink href={'/topic'} > 话题 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to={'/newtopic'} > 发表新话题 </Link>
+                                <NavLink href={'/newtopic'} > 发表新话题 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to={'/signup'} > 注册 </Link>
+                                <NavLink href={'/signup'} > 注册 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to={'/signin'} > 登陆 </Link>
+                                <NavLink href={'/signin'} > 登陆 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to={'/user'} > 用户中心 </Link>
+                                <NavLink href={'/user'} > 用户中心 </NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

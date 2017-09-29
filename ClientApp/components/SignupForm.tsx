@@ -2,11 +2,12 @@ import * as React from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
+import * as SignUpFormState from '../store/SignupForm';
 import { Button, Form, Label, Input, FormGroup, Col, Row } from 'reactstrap';
 
 type SignupFromProps =
-    TopicState.TopicState                       // ... state we've requested from the Redux store
-    & typeof TopicState.actionCreators          // ... plus action creators we've requested
+    SignUpFormState.SignupFormState                       // ... state we've requested from the Redux store
+    & typeof SignUpFormState.actionCreators          // ... plus action creators we've requested
     & RouteComponentProps<{ page: string }>;    // ... plus incoming routing parameters
 
 class SignupForm extends React.Component<SignupFromProps, {}>{
@@ -36,7 +37,7 @@ class SignupForm extends React.Component<SignupFromProps, {}>{
                 </FormGroup>
                 <Row>
                     <Col sm={{ size: 4, offset: 4 }}>
-                        <Button onClick={(value) => this.props.formSubmit(value)}>Submit</Button>
+                        <Button>Submit</Button>
                         <Link className='btn btn-default pull-left' to={ `/fetchdata/1` }>Previous</Link>
                     </Col>
                 </Row>
@@ -46,6 +47,6 @@ class SignupForm extends React.Component<SignupFromProps, {}>{
 }
 
 export default connect(
-    (state: ApplicationState) => state.topic,   // Selects which state properties are merged into the component's props
-    TopicState.actionCreators                       // Selects which action creators are merged into the component's props
+    (state: ApplicationState) => state.signupForm,   // Selects which state properties are merged into the component's props
+    SignUpFormState.actionCreators                       // Selects which action creators are merged into the component's props
 )(SignupForm) as typeof SignupForm;

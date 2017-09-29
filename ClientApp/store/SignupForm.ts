@@ -4,7 +4,6 @@ import { AppThunkAction } from './';
 
 export interface SignupFormState {
     isLoading: boolean;
-    userId: number;
 }
 
 export interface User {
@@ -22,7 +21,6 @@ interface RequestCreateUserAction {
 
 interface ReceiveCreateUserAction {
     type: 'RECEIVE_CREATE_USER';
-    user: User;
 }
 
 type KnowAction = RequestCreateUserAction | ReceiveCreateUserAction;
@@ -32,7 +30,7 @@ export const actionCreators = {
         let fetchTask = fetch(`api/User/id=${userId}`)
             .then(response => response.json as Promise<User>)
             .then(data => {
-                dispatch({ type: 'RECEIVE_CREATE_USER', user: data })
+                dispatch({ type: 'RECEIVE_CREATE_USER'})
             });
 
         addTask(fetchTask);
@@ -40,19 +38,17 @@ export const actionCreators = {
     }
 };
 
-const unloadedState: SignupFormState = { userId: 1, isLoading: false };
+const unloadedState: SignupFormState = { isLoading: false };
 
 export const reducer: Reducer<SignupFormState> = (state: SignupFormState, incomingAction: Action) => {
     const action = incomingAction as KnowAction;
     switch (action.type) {
         case 'REQUEST_CREATE_USER':
             return {
-                userId: state.userId,
                 isLoading: true
             };
         case 'RECEIVE_CREATE_USER':
             return {
-                user: action.user,
                 isLoading: true
             };
         default:
