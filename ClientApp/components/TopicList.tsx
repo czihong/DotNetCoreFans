@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import { Topic } from '../store/TopicListPage';
 
 interface State {
 	isOpen: boolean;
@@ -7,17 +8,6 @@ interface State {
 
 interface Props {
 	topicList: Topic[];
-}
-
-export interface Topic {
-	id: number;
-	category: string;
-	title: string;
-	content: string;
-	createTime: string;
-	isLock: boolean;
-	isRecommand: boolean;
-	isTop: boolean;
 }
 
 export class TopicList extends React.Component<Props, State> {
@@ -31,8 +21,8 @@ export class TopicList extends React.Component<Props, State> {
 							<ListGroupItem>
 								<img className="list-group-item-image" src="https://l.ruby-china.org/user/avatar/14698/036fd5.jpg" />
 								<Col>
-									<ListGroupItemHeading>{topic.title} 这里是一个标题</ListGroupItemHeading>
-									<ListGroupItemText>{topic.content} 这里是文字的标识</ListGroupItemText>
+									<ListGroupItemHeading>{topic.title}</ListGroupItemHeading>
+									<ListGroupItemText>{topic.content}</ListGroupItemText>
 								</Col>
 							</ListGroupItem>
 						</Col>

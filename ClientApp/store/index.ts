@@ -1,14 +1,14 @@
 import * as WeatherForecasts from './WeatherForecasts';
-import * as Counter from './Counter';
 import * as Topic from './Topic';
+import * as TopicListPage from './TopicListPage';
 import * as navMenu from './NavMenu';
 import * as SignupForm from './SignupForm';
 
 // The top-level state object
 export interface ApplicationState {
-    counter: Counter.CounterState;
     weatherForecasts: WeatherForecasts.WeatherForecastsState;
     topic: Topic.TopicState;
+    topicListPage: TopicListPage.TopicListPageState;
     navMenu: navMenu.NavMenuState;
     signupForm: SignupForm.SignupFormState;
 }
@@ -17,9 +17,9 @@ export interface ApplicationState {
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
-    counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
     topic: Topic.reducer,
+    topicListPage: TopicListPage.reducer,
     navMenu: navMenu.reducer,
     signup: SignupForm.reducer
 };

@@ -3,8 +3,7 @@ import { Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import Home from './components/Home';
 import FetchData from './components/FetchData';
-import Counter from './components/Counter';
-import TopicListPage from './components/FetchTopic';
+import TopicListPage from './components/TopicListPage';
 import Topic from './components/Topic';
 import SignupForm from './components/SignupForm';
 import SigninPage from './components/SigninPage';
@@ -16,7 +15,6 @@ export const routes = <Layout>
     <Route path='/fetchtopic/:page?' component={ TopicListPage } />
     <Route path='/topic/:topicId?' component={ Topic } />
     <Route path='/newtopic' component={ NewTopicPage } />
-    <Route path='/counter' component={ Counter } />
     <Route path='/fetchdata/:startDateIndex?' component={ FetchData } />
     <Route path='/signup' component={ SignupForm } />
     <Route path='/signin' component={ SigninPage } />

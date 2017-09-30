@@ -1,38 +1,35 @@
 import * as React from 'react';
-import { Row, Col, Card, CardImg, CardBlock, CardTitle, CardText, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
-import { TopicCard } from './TopicCard';
-import { Topic, TopicList } from './TopicList';
+import { RouteComponentProps } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { ApplicationState } from '../store';
+import { TopicList } from './TopicList';
+import * as TopicListPageStore from '../store/TopicListPage';
 
-export class TopicListPage extends React.Component<{}, {}> {
+type TopicListPageProp =
+    TopicListPageStore.TopicListPageState           // ... state we've requested from the Redux store
+    & typeof TopicListPageStore.actionCreators      // ... plus action creators we've requested
+    & RouteComponentProps<{ page: string }>;        // ... plus incoming routing parameters
+
+export class TopicListPage extends React.Component<TopicListPageProp, {}> {
+    componentWillMount() {
+        let page = parseInt(this.props.match.params.page) || 0;
+        this.props.requestTopic(page);
+    }
+
+    componentWillReceiveProps(nextProps: TopicListPageProp) {
+        let page = parseInt(nextProps.match.params.page) || 0;
+        this.props.requestTopic(page);
+    }
+
 	public render() {
-        let topic : Topic = {
-            id: 1,
-            category: "category",
-            title: "title",
-            content: "content",
-            createTime: "2017-9-30",
-            isLock: false,
-            isRecommand: false,
-            isTop: false,
-        };
-
-        let topic1 : Topic = {
-            id: 1,
-            category: "category",
-            title: "title",
-            content: "content",
-            createTime: "2017-9-30",
-            isLock: false,
-            isRecommand: false,
-            isTop: false,
-        };
-
-        let topics = new Array<Topic>();
-        topics.push(topic);
-        topics.push(topic1);
-
+        let topics = this.props.topicList;
 		return (
             <TopicList topicList={topics}/>
 		);
 	}
 }
+
+export default connect(
+    (state: ApplicationState) => state.topicListPage,   // Selects which state properties are merged into the component's props
+    TopicListPageStore.actionCreators                   // Selects which action creators are merged into the component's props
+)(TopicListPage) as typeof TopicListPage;
