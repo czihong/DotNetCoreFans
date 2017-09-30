@@ -22,6 +22,12 @@ export interface Topic {
     isTop: boolean;
 }
 
+export interface PanelItem {
+    id: number;
+    itemTitle: string;
+    link: string;
+}
+
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
 // They do not themselves have any side-effects; they just describe something that is going to happen.
