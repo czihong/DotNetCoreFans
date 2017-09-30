@@ -4,7 +4,7 @@ import { Layout } from './components/Layout';
 import Home from './components/Home';
 import FetchData from './components/FetchData';
 import Counter from './components/Counter';
-import FetchTopic from './components/FetchTopic';
+import TopicListPage from './components/FetchTopic';
 import Topic from './components/Topic';
 import SignupForm from './components/SignupForm';
 import SigninPage from './components/SigninPage';
@@ -13,7 +13,7 @@ import NewTopicPage from './components/NewTopicPage';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
-    <Route path='/fetchtopic/:page?' component={ FetchTopic } />
+    <Route path='/fetchtopic/:page?' component={ TopicListPage } />
     <Route path='/topic/:topicId?' component={ Topic } />
     <Route path='/newtopic' component={ NewTopicPage } />
     <Route path='/counter' component={ Counter } />

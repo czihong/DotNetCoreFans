@@ -35,6 +35,11 @@
     display: inline;
 }
 
+.list-group-item-image {
+    width: 64px;
+    height: 64px;
+}
+
 /*************************************** dotnet core fans css end **************************************************/
 
 .main-nav li .glyphicon {
