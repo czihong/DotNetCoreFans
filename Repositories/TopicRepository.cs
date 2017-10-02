@@ -50,5 +50,34 @@ namespace DotNetCoreFans.Repositories
             
             return result;
         }
+
+        public Topic AddTopic(Topic topic)
+        {
+            topic.CreateTime = DateTime.Now;
+            topic.UpdateTime = DateTime.Now;
+            _dotNetCoreFansContext.Topic.Add(topic);
+            _dotNetCoreFansContext.SaveChanges();
+
+            return topic;
+        }
+
+        public Topic UpdateTopic(int topicId, Topic topic)
+        {
+            var oldTopic = _dotNetCoreFansContext.Topic.FirstOrDefault(item => item.Id == topicId);
+            _dotNetCoreFansContext.Entry(oldTopic).CurrentValues.SetValues(topic);
+            _dotNetCoreFansContext.SaveChanges();
+
+            return topic;
+        }
+
+        public Topic DeleteTopic(int topicId)
+        {
+            var topic = _dotNetCoreFansContext.Topic.FirstOrDefault(item => item.Id == topicId);
+            topic.IsDelete = true;
+            _dotNetCoreFansContext.Topic.Update(topic);
+            _dotNetCoreFansContext.SaveChanges();
+
+            return topic;
+        }
     }
 }

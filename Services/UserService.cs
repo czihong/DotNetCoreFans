@@ -21,7 +21,7 @@ namespace DotNetCoreFans.Services
                 Password = signupUserRequest.Password,
                 Email = signupUserRequest.Email
             };
-            var result = _userRepository.Add(user);
+            var result = _userRepository.AddUser(user);
 
             return result;
         }

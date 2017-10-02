@@ -39,5 +39,20 @@ namespace DotNetCoreFans.Services
         {
             return _topicRepository.GetTopicById(topicId);
         }
+
+        public Topic AddTopic(Topic topic)
+        {
+            return _topicRepository.AddTopic(topic);
+        }
+
+        public Topic UpdateTopic(int topicId, Topic topic)
+        {
+            return _topicRepository.UpdateTopic(topicId, topic);
+        }
+
+        public Topic DeleteTopic(int topicId)
+        {
+            return _topicRepository.DeleteTopic(topicId);
+        }
     }
 }

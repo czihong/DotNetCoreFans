@@ -14,7 +14,7 @@ namespace DotNetCoreFans.Repositories
             _dotNetCoreFansContext = dotNetCoreFansContext;
         }
 
-        public User Add(User user)
+        public User AddUser(User user)
         {
             user.Password = SecurityHelper.Sha256Hash(user.Password);
             user.CreateTime = DateTime.Now;
