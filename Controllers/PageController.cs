@@ -19,8 +19,15 @@ namespace DotNetCoreFans.Controllers
         [HttpGet]
         public JsonResult TopicList([FromQuery] int page)
         {
+            page = page <= 0 ? 1 : page;
+
             var topicList = _topicService.GetAllTopic(page);
-            return Json(topicList);
+            var userTopic = _topicService.GetTopicByUserId(1, 5);
+            
+            return Json(new {
+                topicList = topicList,
+                userTopic = userTopic
+            });
         }
         
     }

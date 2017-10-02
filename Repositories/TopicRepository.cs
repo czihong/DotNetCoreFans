@@ -25,5 +25,19 @@ namespace DotNetCoreFans.Repositories
         {
             return _dotNetCoreFansContext.Topic.OrderByDescending(item => item.CreateTime).Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
+
+        internal IEnumerable<Topic> GetTopicByUserId(int userId, int size)
+        {
+            var result = _dotNetCoreFansContext.TopicCollect
+                .Where(item => item.UserId == userId)
+                .Join(_dotNetCoreFansContext.Topic,
+                    topicCollect => topicCollect.TopicId,
+                    topic => topic.Id,
+                    (topicCollect, topic) => topic)
+                .OrderBy(item => item.CreateTime)
+                .Take(size);
+
+            return result;
+        }
     }
 }

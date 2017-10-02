@@ -69,8 +69,8 @@ CREATE TABLE Comment
 );
 
 /************************************ UserTopic ************************************/
-IF OBJECT_ID('UserTopic') IS NOT NULL DROP TABLE UserTopic;
-CREATE TABLE UserTopic
+IF OBJECT_ID('TopicCollect') IS NOT NULL DROP TABLE TopicCollect;
+CREATE TABLE TopicCollect
 (
 	UserId bigint not null,
 	TopicId bigint not null,
@@ -78,7 +78,7 @@ CREATE TABLE UserTopic
 	primary key(UserId, TopicId)
 );
 
-INSERT INTO UserTopic 
+INSERT INTO TopicCollect 
 (UserId, TopicId)
 VALUES
 (1, 1),
@@ -87,7 +87,7 @@ VALUES
 (1, 4),
 (1, 5);
 
-SELECT * FROM UserTopic;
+SELECT * FROM TopicCollect;
 
 /************************************ CommentVote ************************************/
 IF OBJECT_ID('CommentVote') IS NOT NULL DROP TABLE CommentVote;
