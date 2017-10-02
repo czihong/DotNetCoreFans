@@ -10,16 +10,17 @@ namespace DotNetCoreFans.Controllers
     public class PageController : Controller
     {
         private readonly TopicService _topicService;
-
+        
         public PageController(TopicService topicService)
         {
             _topicService = topicService;
         }
 
+        [HttpGet]
         public JsonResult TopicList([FromQuery] int page)
         {
             var topicList = _topicService.GetAllTopic(page);
-            return null;
+            return Json(topicList);
         }
         
     }

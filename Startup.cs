@@ -30,7 +30,7 @@ namespace DotNetCoreFans
                 config.SwaggerDoc("v1", new Info { Title = "DotNet Core Fans", Version = "v1" });
             });
             
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=DotNetCoreFans;Trusted_Connection=True;";
+            var connection = Configuration["Database:Connection"];
             services.AddDbContext<DotNetCoreFansContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<UserService>();
