@@ -112,3 +112,26 @@ CREATE TABLE Message
     UpdateTime datetime not null,
 	IsRead bit not null
 );
+
+/************************************ Recommend ************************************/
+IF OBJECT_ID('Recommend') IS NOT NULL DROP TABLE Recommend;
+CREATE TABLE Recommend
+(
+	Id bigint identity primary key,
+	Title nvarchar(100) not null,
+	Link nvarchar(100) not null,
+	CreateTime datetime not null DEFAULT GETDATE(),
+    UpdateTime datetime not null DEFAULT GETDATE(),
+	IsDelete bit not null
+);
+
+INSERT INTO Recommend
+(Title, Link, IsDelete) 
+VALUES 
+('推荐 DotNet Core 资源', 'https://docs.microsoft.com', 0),
+('Dotnet Core 官网', 'https://docs.microsoft.com', 0),
+('Dotnet Core 中文教程', 'https://docs.microsoft.com', 0),
+('Azure School', 'https://schoo.azure.cn', 0),
+('Azure Docs', 'https://docs.azure.cn', 0);
+
+SELECT * FROM Recommend;

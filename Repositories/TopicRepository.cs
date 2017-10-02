@@ -79,5 +79,14 @@ namespace DotNetCoreFans.Repositories
 
             return topic;
         }
+
+        public IEnumerable<Topic> GetNoReplyTopic(int size)
+        {
+            var result = _dotNetCoreFansContext.Topic.Where(item => item.LastReplyDate == null)
+                .OrderBy(item => item.CreateTime)
+                .Take(size);
+
+            return result;
+        }
     }
 }
