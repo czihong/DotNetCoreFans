@@ -9,7 +9,6 @@ namespace DotNetCoreFans.Models
         public string Category { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public long CreateUserId { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime? UpdateTime { get; set; }
         public bool IsLock { get; set; }

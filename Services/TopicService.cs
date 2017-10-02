@@ -27,9 +27,17 @@ namespace DotNetCoreFans.Services
             return _topicRepository.GetAllTopic(pageNumber, _defaultPageSize);
         }
 
-        public IEnumerable<Topic> GetTopicByUserId(int userId, int size)
+        /// <summary>
+        /// Get user's other topic
+        /// </summary>
+        public IEnumerable<Topic> GetTopicByUserId(int userId, int topicId, int size)
         {
-            return _topicRepository.GetTopicByUserId(userId, size);
+            return _topicRepository.GetTopicByUserId(userId, topicId, size);
+        }
+
+        public Topic GetTopicById(int topicId)
+        {
+            return _topicRepository.GetTopicById(topicId);
         }
     }
 }

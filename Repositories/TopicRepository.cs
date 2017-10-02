@@ -26,7 +26,7 @@ namespace DotNetCoreFans.Repositories
             return _dotNetCoreFansContext.Topic.OrderByDescending(item => item.CreateTime).Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
-        internal IEnumerable<Topic> GetTopicByUserId(int userId, int size)
+        public IEnumerable<Topic> GetTopicByUserId(int userId, int topicId, int size)
         {
             var result = _dotNetCoreFansContext.TopicCollect
                 .Where(item => item.UserId == userId)
@@ -34,9 +34,20 @@ namespace DotNetCoreFans.Repositories
                     topicCollect => topicCollect.TopicId,
                     topic => topic.Id,
                     (topicCollect, topic) => topic)
+                .Where(item => item.Id != topicId)
                 .OrderBy(item => item.CreateTime)
                 .Take(size);
 
+            return result;
+        }
+
+        public Topic GetTopicById(int topicId)
+        {
+            var result = _dotNetCoreFansContext.Topic
+                .Where(item => item.Id == topicId)
+                .OrderBy(item => item.CreateTime)
+                .FirstOrDefault();
+            
             return result;
         }
     }
