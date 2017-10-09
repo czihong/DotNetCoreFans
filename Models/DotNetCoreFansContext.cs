@@ -12,6 +12,7 @@ namespace DotNetCoreFans.Models
         public virtual DbSet<Topic> Topic { get; set; }
         public virtual DbSet<TopicCollect> TopicCollect { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Recommend> Recommend { get; set; }
 
         public DotNetCoreFansContext(DbContextOptions<DotNetCoreFansContext> options) : base(options)
         { }
@@ -126,6 +127,21 @@ namespace DotNetCoreFans.Models
                 entity.Property(e => e.NickName)
                     .IsRequired()
                     .HasMaxLength(20);
+            });
+
+            modelBuilder.Entity<Recommend>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Title).HasColumnName("Title");
+
+                entity.Property(e => e.Link).HasColumnName("Link");
+
+                entity.Property(e => e.IsDelete).HasColumnName("IsDelete");
+
+                entity.Property(e => e.CreateTime).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdateTime).HasColumnType("datetime");
             });
         }
     }
