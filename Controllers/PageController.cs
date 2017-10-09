@@ -22,7 +22,7 @@ namespace DotNetCoreFans.Controllers
             page = page <= 0 ? 1 : page;
 
             var topicList = _topicService.GetAllTopic(page);
-            var userTopic = _topicService.GetTopicByUserId(1, 5);
+            var userTopic = _topicService.GetTopicByUserId(1, 5, 5);
             
             return Json(new {
                 topicList = topicList,

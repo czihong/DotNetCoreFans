@@ -35,6 +35,11 @@ namespace DotNetCoreFans.Services
             return _topicRepository.GetTopicByUserId(userId, topicId, size);
         }
 
+        public IEnumerable<Topic> GetNoReplyTopic(int size)
+        {
+            return _topicRepository.GetNoReplyTopic(size);
+        }
+
         public Topic GetTopicById(int topicId)
         {
             return _topicRepository.GetTopicById(topicId);

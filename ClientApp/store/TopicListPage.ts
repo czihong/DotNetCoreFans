@@ -56,7 +56,7 @@ export const actionCreators = {
     requestTopic: (page: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         if (page !== getState().topic.page) {
-            let fetchTask = fetch(`api/Topic/Topic?page=${ page }`)
+            let fetchTask = fetch(`api/Topic?page=${ page }`)
                 .then(response => response.json() as Promise<Topic[]>)
                 .then(data => {
                     dispatch({ type: 'RECEIVE_TOPIC', page: page, topicList: data});

@@ -35,9 +35,11 @@ namespace DotNetCoreFans
 
             services.AddScoped<UserService>();
             services.AddScoped<TopicService>();
+            services.AddScoped<RecommendService>();
 
             services.AddScoped<UserRepository>();
             services.AddScoped<TopicRepository>();
+            services.AddScoped<RecommendRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

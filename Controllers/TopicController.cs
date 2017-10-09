@@ -16,7 +16,7 @@ namespace DotNetCoreFans.Controllers
             _topicService = topicService;
         }
 
-        [HttpGet("[action]")]
+        [HttpGet]
         public IEnumerable<Topic> Topic([FromQuery] int page)
         {
             page = page <= 0 ? 1 : page;
@@ -29,7 +29,24 @@ namespace DotNetCoreFans.Controllers
         public Topic GetTopicById([FromRoute] int id)
         {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            return new Topic();
+
+            var result = _topicService.GetTopicById(id);
+            return result;
         }
+
+        [HttpGet("Other")]
+        public IEnumerable<Topic> GetTopicByUserId([FromQuery] int userId, [FromQuery] int topicId, [FromQuery] int size)
+        {
+            var topicList = _topicService.GetTopicByUserId(userId, topicId, size);
+            return topicList;
+        }
+
+        [HttpGet("NoReply")]
+        public IEnumerable<Topic> GetNoReplyTopic([FromQuery] int size)
+        {
+            var topicList = _topicService.GetNoReplyTopic(5);
+            return topicList;
+        }
+
     }
 }
